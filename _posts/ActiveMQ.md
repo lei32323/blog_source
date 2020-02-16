@@ -73,7 +73,7 @@ tags: Active mq,分布式
 
 生产者
 
-![生产者](https://wangllei.club/activemq 生产者.png)
+![生产者](https://wanglei.club/activemq 生产者.png)
 
 如果需要持久化消息需要设置：
 
@@ -91,13 +91,13 @@ tags: Active mq,分布式
 
 生产者(持久化)
 
-![](https://wanglei.club/activemq 生产者topic.png)
+![](https://wanglei.club/activemq生产者topic.png)
 
 消费者：
 
-![](https://wanglei.club/activemq 消费者topic.png)
+![](https://wanglei.club/activemq消费者topic.png)
 
-![](https://wanglei.club/activemq 消费者topic2.png)
+![](https://wanglei.club/activemq消费者topic2.png)
 
 
 
@@ -149,13 +149,13 @@ tags: Active mq,分布式
 
 1. brokerRL:后面追加：?jms.useAsynSend=true
 
-   ![](https://wanglei.club/activemq 异步发送.png)
+   ![](https://wanglei.club/activemq异步发送.png)
 
 2. 代码形式设置：
 
-   ![](https://wanglei.club/activemq 异步发送2.png)
+   ![](https://wanglei.club/activemq异步发送2.png)
 
-![](https://wanglei.club/activemq 异步发送3.png)
+![](https://wanglei.club/activemq异步发送3.png)
 
 
 
