@@ -1,3 +1,11 @@
+---
+title: Spring Cloud Seluth -Zipkin
+date: 2018-12-13 22:33:36
+tags: spring cloud
+---
+
+
+
 # Spring Cloud Seluth -Zipkin
 
 Spring Cloud Sleuth是为Spring Cloud实现了分布式链路追踪解决方案。

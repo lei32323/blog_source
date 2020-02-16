@@ -1,3 +1,11 @@
+---
+title: Spring cloud Zuul
+date: 2018-12-11 22:07:36
+tags: spring cloud
+---
+
+
+
 # Spring cloud Zuul
 
 ## Zuul基本用法
@@ -191,5 +199,5 @@ spring zuul -> student-client->student-service-provider
 
 
 
-    ​	
+    	
 

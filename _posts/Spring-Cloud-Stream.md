@@ -1,3 +1,11 @@
+---
+title: Spring Cloud Stream
+date: 2018-12-11 22:07:36
+tags: spring cloud
+---
+
+
+
 # Spring Cloud Stream
 
 ## kafka

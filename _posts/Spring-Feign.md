@@ -1,8 +1,16 @@
+---
+title: Spring cloud  Feign
+date: 2018-12-11 22:07:36
+tags: spring cloud
+---
+
+
+
 APT
 
 [Spring cloud官方中文文档](http://ifeve.com/%E3%80%8Aspring-cloud-netflix%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E3%80%8B7-%E5%A3%B0%E6%98%8E%E5%BC%8F-rest-%E5%AE%A2%E6%88%B7%E7%AB%AF%EF%BC%9A-feign/)
 
-# Feign 
+# Feign
 
 ## 申明式服务客户端Feign 基本使用
 

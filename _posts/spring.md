@@ -1,3 +1,11 @@
+---
+title: Spring
+date: 2020-02-16 18:49:36
+tags: Spring
+---
+
+
+
 # spring 模块
 
 + 基础模块,提供spring的基础功能
@@ -308,6 +316,8 @@ IOC：控制反转  \ DI:依赖注入
      ~~~java
     public class StudnetProd  implements Condition {  // 继承Condition
     
+     ~~~
+
 private String name ="生产";
     
     public String getName() {
@@ -319,7 +329,7 @@ private String name ="生产";
     }
       
      ~~~
-    
+
 
    ~~~java
 @Override
@@ -360,7 +370,7 @@ public class StudnetTest implements Condition {  // 继承Condition
 ```
 
 
-   
+
 ```java
 @Bean
 @Conditional(StudnetTest.class)  //当matches 返回true的时候 创建bean

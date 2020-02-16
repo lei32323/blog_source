@@ -1,3 +1,11 @@
+---
+title: Spring boot +spring cloud
+date: 2018-12-16 12:53:36
+tags: Spring boot,spring cloud
+---
+
+
+
 # Spring boot +spring cloud 整理回顾
 
 2个属性相同的不同路径的类需要转换的方法

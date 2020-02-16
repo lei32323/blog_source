@@ -1,3 +1,11 @@
+---
+title:  Active mq
+date: 2020-02-16 20:28:36
+tags: Active mq,分布式
+---
+
+
+
 # active mq使用
 
 ## queue的使用
