@@ -6,49 +6,47 @@ tags: Active mq,分布式
 
 ## 介绍
 
-1. 从JMS规范了解Active MQ
+### 从JMS规范了解Active MQ
 
-   JMS的定义：消息中间件的API； jBoss MQ ,active MQ 
+​	JMS的定义：消息中间件的API； jBoss MQ ,active MQ 
 
-   MOM模式：面向消息中间件
+​	MOM模式：面向消息中间件
 
-2. JMS基本功能
+### JMS基本功能
 
-   a) 消息传递域：point-point ;发布订阅（publish/subscribe）topic
++ 消息传递域：point-point ;发布订阅（publish/subscribe）topic
 
-   b) p2p:每个消息只能有一个消费者   ------点对点
++  p2p:每个消息只能有一个消费者   ------点对点
 
-   c) pub/sub: 每个消息有多个消费者   ----广播     只能订阅 “发布者发布后的消息”
++  pub/sub: 每个消息有多个消费者   ----广播     只能订阅 “发布者发布后的消息”
 
-   d) 消息头 消息体（Text,Map,Bytes,Stream,Object） 消息属性
++ 消息头 消息体（Text,Map,Bytes,Stream,Object） 消息属性
 
-   e) 发布，订阅的时间相关性 (发布者必须在线，订阅者也在线 才能收到  )
++ 发布，订阅的时间相关性 (发布者必须在线，订阅者也在线 才能收到  )
 
-   f) 发布，订阅有持久化订阅，这样可以订阅者不在线。（生产者指定setClientID，消费者获取createDurableSubscriber）类似于QQ号
++ 发布，订阅有持久化订阅，这样可以订阅者不在线。（生产者指定setClientID，消费者获取createDurableSubscriber）类似于QQ号
 
-3. 消息的确认方式
+### 消息的确认方式
 
-   ACK机制：
++ ACK机制：
+  +  AUTO_ACKNOWLEDGE = 1  自动确认消息，不需要手动调用message.acknowledge();;
+  + CLIENT_ACKNOWLEDGE = 2    消费客户端手动确认 ，和发送方无关   （有10条消息进行消费，再第6条的时候进行确认消费，那么1-6都被消费了）
+  + DUPS_OK_ACKNOWLEDGE = 3    自动批量确认，延迟消费
+  + SESSION_TRANSACTED = 0    事务提交并确认
+  +  消息的处理阶段：客户端接收消息，客户的处理消息，消息被确认
 
-   + AUTO_ACKNOWLEDGE = 1  自动确认消息，不需要手动调用message.acknowledge();;
-   + CLIENT_ACKNOWLEDGE = 2    消费客户端手动确认 ，和发送方无关   （有10条消息进行消费，再第6条的时候进行确认消费，那么1-6都被消费了）
-   + DUPS_OK_ACKNOWLEDGE = 3    自动批量确认，延迟消费
-   + SESSION_TRANSACTED = 0    事务提交并确认
-   + 消息的处理阶段：客户端接收消息，客户的处理消息，消息被确认
++ 会话存在2种机制
+  + 事务性会话
+    +  事务型事务：
+      + 对于发送端来说 是针对于消息的，commit()消息提交到队列 rollback()消息回滚到没发布到队列
+      +  对于客户端来说 是针对于消息的，commit()消息已经确认消费了。Rollback()消息没有被处理，可以被其他人处理
+    +  非事务型会话
 
-4. 会话存在2种机制
-
-+  事务性会话
-  + 事务型事务：
-    + 对于发送端来说 是针对于消息的，commit()消息提交到队列 rollback()消息回滚到没发布到队列
-    + 对于客户端来说 是针对于消息的，commit()消息已经确认消费了。Rollback()消息没有被处理，可以被其他人处理
-  + 非事务型会话
-
-+ 没有事务一说，所以没有commit和rollback，都为自动确认
+  +  没有事务一说，所以没有commit和rollback，都为自动确认
 
   
 
-5. P2P模型和PUB/SUB模型总结
+### P2P模型和PUB/SUB模型总结
 
 + P2P
 
