@@ -432,15 +432,15 @@ public StudnetProd studnetProd(){
     }
     ~~~
 
+**ConfigurationBean**
 
+```java
 
-    **ConfigurationBean**
-    
-    ~~~java
-    @Configuration
-    @ImportResource("classpath:spring-context.xml")
-    public class ConfigurationBean {}
-    ~~~
+@Configuration
+@ImportResource("classpath:spring-context.xml")
+public class ConfigurationBean {}
+
+```
 
 
 
@@ -550,7 +550,7 @@ public void shouMessage(String message){
 
 ​		2.2） 其他介绍
 
-![image-20190108114649146](assets/image-20190108114649146.png)
+![image-20190108114649146](https://wanglei.club/其他介绍.png)
 
 ​	3） 顺序的监听器`@Order` 设置优先级
 
@@ -592,7 +592,7 @@ public void shouMessage(String message){
       Resource resource = applicationContext.getResource("http:application-context.xml");
       ~~~
 
-    ![1546938519972](assets\assets%5C1546938519972.png)
+    ![1546938519972](https://wanglei.club/spring文件加载条件.png)
 
     **代码使用ResourceLoaderAware**
 
