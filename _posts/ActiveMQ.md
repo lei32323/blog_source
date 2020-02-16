@@ -73,7 +73,7 @@ tags: Active mq,分布式
 
 生产者
 
-![生产者](https://wanglei.club/activemq 生产者.png)
+![生产者](https://wanglei.club/activemq生产者.png)
 
 如果需要持久化消息需要设置：
 
@@ -83,7 +83,7 @@ tags: Active mq,分布式
 
 消费者
 
-![](https://wanglei.club/activemq 消费者.png)
+![](https://wanglei.club/activemq消费者.png)
 
 
 
