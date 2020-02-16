@@ -1,5 +1,5 @@
 ---
-title:  Active mq
+title:  Active mq 源码分析
 date: 2020-02-16 20:28:36
 tags: Active mq,分布式
 ---
