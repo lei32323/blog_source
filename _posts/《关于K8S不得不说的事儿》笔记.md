@@ -4,8 +4,6 @@ date: 2020-03-06 20:14:36
 tags: K8s,分布式
 ---
 
-
-
 ## 01 Controllers
 
 > `官网`：<https://kubernetes.io/docs/concepts/workloads/controllers/>
@@ -142,6 +140,7 @@ spec:
     - {key:tier,operator: In,values: [frontend]}
   template:
   ...
+
 ```
 
 `注意`：一般情况下，我们很少单独使用Replica Set，它主要是被Deployment这个更高的资源对象所使用，从而形成一整套Pod创建、删除、更新的编排机制。当我们使用Deployment时，无须关心它是如何创建和维护Replica Set的，这一切都是自动发生的。同时，无需担心跟其他机制的不兼容问题（比如ReplicaSet不支持rolling-update但Deployment支持）。
@@ -154,6 +153,7 @@ spec:
 > A Deployment provides declarative updates for Pods and ReplicaSets.
 > 
 > You describe a desired state in a Deployment, and the Deployment Controller changes the actual state to the desired state at a controlled rate. You can define Deployments to create new ReplicaSets, or to remove existing Deployments and adopt all their resources with new Deployments.
+> 
 > ```
 >
 > Deployment相对RC最大的一个升级就是我们可以随时知道当前Pod“部署”的进度。
@@ -225,6 +225,7 @@ nginx-deployment   3/3         3     3  3m27s      nginx    nginx:1.7.9   app=ng
 
 ```
 kubectl set image deployment nginx-deployment nginx=nginx:1.9.1
+
 ```
 
 ## 02 Labels and Selectors
@@ -235,6 +236,7 @@ kubectl set image deployment nginx-deployment nginx=nginx:1.9.1
 >
 > ```
 > Labels are key/value pairs that are attached to objects, such as pods. 
+> 
 > ```
 
 ```yaml
@@ -244,6 +246,7 @@ metadata:
   name: nginx-pod
   labels:
     app: nginx
+
 ```
 
 表示名称为nginx-pod的pod，有一个label，key为app，value为nginx。
@@ -272,6 +275,7 @@ spec:
         image: nginx:1.7.9
         ports:
         - containerPort: 80
+
 ```
 
 > 查看pod的label标签：kubectl get pods --show-labels
@@ -294,6 +298,7 @@ spec:
 > kube-node-lease   Active   27m
 > kube-public       Active   27m
 > kube-system       Active   27m
+> 
 > ```
 
 其实说白了，命名空间就是为了隔离不同的资源，比如：Pod、Service、Deployment等。可以在输入命令的时候指定命名空间`-n`，如果不指定，则使用默认的命名空间：default。
@@ -306,7 +311,8 @@ spec:
 > apiVersion: v1
 > kind: Namespace
 > metadata:
->   name: myns
+> name: myns
+> 
 > ```
 
 kubectl apply -f myns-namespace.yaml
@@ -388,14 +394,14 @@ spec:
 > apiVersion: v1
 > kind: Pod
 > metadata:
->   name: nginx-pod
->   labels:
->     app: nginx
+> name: nginx-pod
+> labels:
+> app: nginx
 > spec:
->   containers:
+> containers:
 >   - name: nginx-container
->     image: nginx
->     ports:
+> image: nginx
+> ports:
 >     - containerPort: 80
 > ```
 
@@ -405,14 +411,14 @@ spec:
 > apiVersion: v1
 > kind: Pod
 > metadata:
->  name: busybox
->  labels:
->     app: busybox
+> name: busybox
+> labels:
+> app: busybox
 > spec:
->  containers:
+> containers:
 >   - name: busybox
->     image: busybox
->     command: ['sh', '-c', 'echo The app is running! && sleep 3600']
+> image: busybox
+> command: ['sh', '-c', 'echo The app is running! && sleep 3600']
 > ```
 
 > 将两个pod运行起来，并且查看运行情况
@@ -467,6 +473,7 @@ PING 192.168.14.1 (192.168.14.1) 56(84) bytes of data.
 64 bytes from 192.168.14.1: icmp_seq=1 ttl=63 time=0.680 ms
 64 bytes from 192.168.14.1: icmp_seq=2 ttl=63 time=0.306 ms
 64 bytes from 192.168.14.1: icmp_seq=3 ttl=63 time=0.688 ms
+
 ```
 
 > (2)来到worker02：curl 192.168.14.1，同样可以访问nginx
@@ -703,7 +710,7 @@ curl 192.168.0.61:32041
 > Ingress can provide load balancing, SSL termination and name-based virtual hosting.
 > ```
 
-![](F:/work/kubernetes1117/images/29.png)
+[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-pYLLo5af-1574338208763)(F:/work/kubernetes1117/images/29.png)]
 
 > 可以发现，Ingress就是帮助我们访问集群内的服务的。不过在看Ingress之前，我们还是先以一个案例出发。
 >
