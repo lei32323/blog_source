@@ -1,3 +1,9 @@
+---
+title: K8S 安装 Dashboard
+date: 2020-03-06 20:14:36
+tags: K8s,分布式
+---
+
 # K8S 安装 Dashboard
 
 ### 下载 Dashboard yaml 文件
