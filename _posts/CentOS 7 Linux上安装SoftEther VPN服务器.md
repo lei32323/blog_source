@@ -168,7 +168,7 @@ firewall-cmd --reload  ##重启
 
 下载界面
 
-![image-20200406155139488](../images/image-20200406155139488.png)
+![image-20200406155139488](..\images\image-20200406155139488.png)
 
 
 
@@ -176,7 +176,7 @@ firewall-cmd --reload  ##重启
 
 
 
-![img](../images/20180520135425.png)
+![img](..\images\20180520135425.png)
 
 下一步：
 
