@@ -12,7 +12,7 @@ tags: VPN,代理
 
 [SoftEther VPN](https://www.softether.org/)是由日本筑波大学的[登 大遊](http://dnobori.cs.tsukuba.ac.jp/en/)在硕士论文中提出的开源、跨平台、多重协议的虚拟专用网方案，是专门为穿过防火墙而设计的。我们可以用它在自己的云主机上搭建一个简单的VPN来使用。本文将介绍如何在CentOS Linux系统上搭建SoftEther VPN服务。并在Windows客户端上连接始用！
 
-## 服务器端 
+## 服务器端  
 
 首先要在服务器上下载并解压安装文件，注意是32位还是64位系统（可通过uname -a命令查看），我这里下载的是64位：
 
@@ -39,7 +39,7 @@ yum -y install make cmake gcc gcc-c++ gcc-g77 flex bison file libtool libtool-li
 ```
 
 ~~~bash
-make
+make ## 执行
 ~~~
 
 
