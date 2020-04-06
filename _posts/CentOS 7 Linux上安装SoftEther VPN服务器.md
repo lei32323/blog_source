@@ -176,7 +176,7 @@ firewall-cmd --reload  ##重启
 
 
 
-![img](..\images\20180520135425.png)
+![img](https://wanglei.club/20180520135425.png)
 
 下一步：
 
