@@ -1,6 +1,6 @@
 ---
 title: K8S 安装 Dashboard
-date: 2020-03-06 20:14:36
+date: 2020-04-06 21:14:36
 tags: K8s,分布式
 ---
 
