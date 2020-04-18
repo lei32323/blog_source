@@ -622,12 +622,13 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 9376
-  type: Cluster
 ```
 
 `conclusion`：其实Service存在的意义就是为了Pod的不稳定性，而上述探讨的就是关于Service的一种类型Cluster IP，只能供集群内访问
 
 > 以Pod为中心，已经讨论了关于集群内的通信方式，接下来就是探讨集群中的Pod访问外部服务，以及外部服务访问集群中的Pod
+>
+> type 不写 默认就是   ClusterIp
 
 ### 4.4 Pod访问外部服务
 
