@@ -537,6 +537,6 @@ Request Body:
 
 
 
-[关于kong-ingress的配置详细在github上  https://github.com/lei32323/kubenetes-demo/tree/master/kong](https://github.com/lei32323/kubenetes-demo/tree/master/kong)
+[关于博客中出现的kong-ingress的配置详细在github上  https://github.com/lei32323/kubenetes-demo/tree/master/kong](https://github.com/lei32323/kubenetes-demo/tree/master/kong)
 
 
