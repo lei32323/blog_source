@@ -272,7 +272,7 @@ eureka.client.service-url.defaultZone = http://localhost:${eureka.client.eureka-
 
 3. 监控信息
 
-![1542789144207](https://wanglei.club/Turbine.png)
+![1542789144207](https://www.lei32323.com/Turbine.png)
 
 **注意：** 就是连接Eureka服务器端，拦截Eureka客户端被熔断保护的方法上。
 

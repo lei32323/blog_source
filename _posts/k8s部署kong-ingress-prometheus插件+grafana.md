@@ -1,5 +1,5 @@
 ---
-title: k8s部署kong-ingress-prometheus插件+grafana
+title: k8s部署kong-ingress+prometheus插件+grafana
 date: 2020-04-19 12:55:36
 tags: K8s,分布式
 ---
@@ -25,25 +25,25 @@ curl http://${CLUSTER_IP}:8444/metrics
 
 如果已经关联数据库了，那就直接在konga的界面就可以直接安装了
 
-![image-20200419140311972](/Users/wanglei/Library/Application Support/typora-user-images/image-20200419140311972.png)
+![image-20200419140311972](https://www.lei32323.com/image-20200419140311972.png)
 
 
 
 选择prometheus插件进行安装
 
-![image-20200419140350108](/Users/wanglei/dev/blog_source/images/image-20200419140350108.png)
+![image-20200419140350108](https://www.lei32323.com/image-20200419140350108.png)
 
 
 
 这里可以直接点击ADD PLUGIN ,让所有的consumer使用(如果你需要指定consume，需要填写对应的comsumer ID)
 
-![image-20200419140455663](/Users/wanglei/dev/blog_source/images/image-20200419140455663.png)
+![image-20200419140455663](https://www.lei32323.com/image-20200419140455663.png)
 
 
 
 这个时候 发现已经创建了一个plugin  （默认是所有的Route都能使用）
 
-![image-20200419140644208](/Users/wanglei/dev/blog_source/images/image-20200419140644208.png)
+![image-20200419140644208](https://www.lei32323.com/image-20200419140644208.png)
 
 
 
@@ -57,21 +57,21 @@ curl http://${CLUSTER_IP}:8444/metrics
 
 在Routes中， 选择需要安装插件的Route
 
-![image-20200419140854957](/Users/wanglei/dev/blog_source/images/image-20200419140854957.png)
+![image-20200419140854957](https://www.lei32323.com/image-20200419140854957.png)
 
 
 
 选择Prometheus插件进行安装
 
-![image-20200419140942993](/Users/wanglei/dev/blog_source/images/image-20200419140942993.png)
+![image-20200419140942993](https://www.lei32323.com/image-20200419140942993.png)
 
 
 
-![image-20200419141003917](/Users/wanglei/dev/blog_source/images/image-20200419141003917.png)
+![image-20200419141003917](https://www.lei32323.com/image-20200419141003917.png)
 
 
 
-![image-20200419141028905](/Users/wanglei/dev/blog_source/images/image-20200419141028905.png)
+![image-20200419141028905](https://www.lei32323.com/image-20200419141028905.png)
 
 
 
@@ -79,7 +79,7 @@ curl http://${CLUSTER_IP}:8444/metrics
 
 这时你会发现已经添加了Prometheus 
 
-![image-20200419141056731](/Users/wanglei/dev/blog_source/images/image-20200419141056731.png)
+![image-20200419141056731](https://www.lei32323.com/image-20200419141056731.png)
 
 > 这里的插件只针对当前的选择的route，并不是全局的
 
@@ -87,7 +87,7 @@ curl http://${CLUSTER_IP}:8444/metrics
 
 在Plugins菜单中会发现有一个插件已经APPLY_TO到某一个Route了
 
-![image-20200419141231544](/Users/wanglei/dev/blog_source/images/image-20200419141231544.png)
+![image-20200419141231544](https://www.lei32323.com/image-20200419141231544.png)
 
 
 
@@ -134,11 +134,21 @@ plugin: prometheus
 
 # 安装Prometheus Pod
 
+下载`prometheus-namespace.yaml`
+
+创建prometheus的namespace 
+
+~~~bash
+kubectl apply -f prometheus-namespace.yaml
+~~~
+
+
+
 下载`prometheus.yaml`文件
 
 找到 `- targets: ['localhost:9090']` 这一行，添加 Kong 管理节点，添加后如下：
 
-![image-20200419143031903](/Users/wanglei/dev/blog_source/images/image-20200419143031903.png)
+![image-20200419143031903](https://www.lei32323.com/image-20200419143031903.png)
 
 > 这里的8444就是kong-admin的服务
 
@@ -150,80 +160,80 @@ plugin: prometheus
 
 > nfs(network file system)网络文件系统，是FreeBSD支持的文件系统中的一种，允许网络中的计算机之间通过 TCP/IP网络共享资源
 
-找到一台服务器，安装nfs
+找到一台可以安装nfs的机器
 
 1. 安装nfs
 
-   1. ~~~bash
-      yum install -y nfs-utils
-      ~~~
+   ~~~bash
+   yum install -y nfs-utils
+   ~~~
 
 2. 创建nfs目录 (需要根据prometheus.yaml中配置的PersistentVolume的path)
 
-   1. ~~~bash
-      mkdir -p /nfs/prometheus/data 
-      mkdir -p /nfs/grafana/data    #因为下面的grafana 也需要nfs所以这里一起创建了
-      ~~~
+   ~~~bash
+   mkdir -p /nfs/prometheus/data 
+   mkdir -p /nfs/grafana/data    #因为下面的grafana 也需要nfs所以这里一起创建了
+   ~~~
 
-   ![image-20200419144309565](/Users/wanglei/dev/blog_source/images/image-20200419144309565.png)
+   ![image-20200419144309565](https://www.lei32323.com/image-20200419144309565.png)
 
 3. 授予权限
 
-   1. ~~~bash
-      chmod -R 777 /nfs
-      ~~~
+   ~~~bash
+   chmod -R 777 /nfs
+   ~~~
 
 4. 编辑export文件
 
-   1. ~~~bash
-      vi /etc/exports
-         /nfs *(rw,no_root_squash,sync)
-      ~~~
+   ~~~bash
+   vi /etc/exports
+      /nfs *(rw,no_root_squash,sync)
+   ~~~
 
 5. 使export文件生效
 
-   1. ~~~bash
-      exportfs -r
-      ~~~
+   ~~~bash
+   exportfs -r
+   ~~~
 
 6. 查看生效
 
-   1. ~~~bash
-      exportfs
-      ~~~
+   ~~~bash
+   exportfs
+   ~~~
 
 7. 启动rpcbind,nfs服务
 
-   1. ~~~bash
-      systemctl restart rpcbind && systemctl enable rpcbind 
-      systemctl restart nfs && systemctl enable nfs
-      ~~~
+   ~~~bash
+   systemctl restart rpcbind && systemctl enable rpcbind 
+   systemctl restart nfs && systemctl enable nfs
+   ~~~
 
 8. 查看rpc服务的注册情况
 
-   1. ~~~bash
-      rpcinfo -p localhost
-      ~~~
+   ~~~bash
+   rpcinfo -p localhost
+   ~~~
 
-      ![image-20200419143843283](/Users/wanglei/dev/blog_source/images/image-20200419143843283.png)
+   ![image-20200419143843283](https://www.lei32323.com/image-20200419143843283.png)
 
 9. Showmount测试
 
-   1. ~~~bash
-      showmount -e 当前nfs的机器ip
-      ~~~
+   ~~~bash
+   showmount -e 当前nfs的机器ip
+   ~~~
 
-   2. ![image-20200419143757694](/Users/wanglei/dev/blog_source/images/image-20200419143757694.png)
+   ![image-20200419143757694](https://www.lei32323.com/image-20200419143757694.png)
 
 10. 在k8s的集群中都要安装nfs
 
-    1. ~~~bash
-       yum -y install nfs-utils
-       ~~~
+    ~~~bash
+    yum -y install nfs-utils
+    ~~~
 
-    2. ~~~bash
-       systemctl start nfs && systemctl enable nfs
-       ~~~
+    ~~~bash
+    systemctl start nfs && systemctl enable nfs
+    ~~~
 
 > **这里你的nfs 要么把端口都要放开，要么直接把防火墙关掉，否则其他机器是连不上的nfs服务的**
 
@@ -233,7 +243,7 @@ plugin: prometheus
 
 运行之前，还要把`prometheus.yaml`中的nfs服务器地址换成我们刚才的nfs服务器
 
-![image-20200419144402627](/Users/wanglei/dev/blog_source/images/image-20200419144402627.png)
+![image-20200419144402627](https://www.lei32323.com/image-20200419144402627.png)
 
 
 
@@ -243,7 +253,7 @@ plugin: prometheus
 
 查看`kubectl get pods -n ns-monitor -o wide`  pod创建情况
 
-![image-20200419144603057](/Users/wanglei/dev/blog_source/images/image-20200419144603057.png)
+![image-20200419144603057](https://www.lei32323.com/image-20200419144603057.png)
 
 
 
@@ -265,19 +275,19 @@ kubectl describe pod -n ns-monitor prometheus-5c9b8f5d68-wngb7
 kubectl get svc -n ns-monitor
 ~~~
 
-![image-20200419144856600](/Users/wanglei/dev/blog_source/images/image-20200419144856600.png)
+![image-20200419144856600](https://www.lei32323.com/image-20200419144856600.png)
 
 查看对外端口为60699 ，上面查看Pod 安装到了master01节点上，
 
 那我们直接再浏览器上访问`http://192.168.0.200:60699/` 就能看到primetheus界面了
 
-![image-20200419145247245](/Users/wanglei/dev/blog_source/images/image-20200419145247245.png)
+![image-20200419145247245](https://www.lei32323.com/image-20200419145247245.png)
 
 
 
 选择Metrics名称 就能看到我们的一开始调用8444接口查看到的指标信息
 
-![image-20200419145353806](/Users/wanglei/dev/blog_source/images/image-20200419145353806.png)
+![image-20200419145353806](https://www.lei32323.com/image-20200419145353806.png)
 
 # 安装Grafana Pod
 
@@ -285,7 +295,7 @@ kubectl get svc -n ns-monitor
 
 同样这里需要把nfs 的服务器地址更换到上面的nfs服务器地址
 
-![image-20200419145630533](/Users/wanglei/dev/blog_source/images/image-20200419145630533.png)
+![image-20200419145630533](https://www.lei32323.com/image-20200419145630533.png)
 
 如果上面没有创建grafana的nfs路径的话，也需要再nfs服务器中创建
 
@@ -307,7 +317,7 @@ kubectl apply -f grafana.yaml
 kubectl get pods -n ns-monitor -o wide 
 ~~~
 
-![image-20200419145957071](/Users/wanglei/dev/blog_source/images/image-20200419145957071.png)
+![image-20200419145957071](https://www.lei32323.com/image-20200419145957071.png)
 
 
 
@@ -321,7 +331,7 @@ kubectl get pods -n ns-monitor -o wide
 kubectl get svc -n ns-monitor
 ~~~
 
-![image-20200419145911268](/Users/wanglei/dev/blog_source/images/image-20200419145911268.png)
+![image-20200419145911268](https://www.lei32323.com/image-20200419145911268.png)
 
 当前对外的映射端口为40492
 
@@ -343,17 +353,17 @@ http://192.168.0.205:40492/
 
 选择菜单的data sources
 
-![image-20200419150415575](/Users/wanglei/dev/blog_source/images/image-20200419150415575.png)
+![image-20200419150415575](https://www.lei32323.com/image-20200419150415575.png)
 
 
 
 添加数据源
 
-![image-20200419150440064](/Users/wanglei/dev/blog_source/images/image-20200419150440064.png)
+![image-20200419150440064](https://www.lei32323.com/image-20200419150440064.png)
 
 
 
-![image-20200419150453625](/Users/wanglei/dev/blog_source/images/image-20200419150453625.png)
+![image-20200419150453625](https://www.lei32323.com/image-20200419150453625.png)
 
 
 
@@ -361,7 +371,7 @@ http://192.168.0.205:40492/
 
 配置prometheus的连接地址
 
-![image-20200419150523772](/Users/wanglei/dev/blog_source/images/image-20200419150523772.png)
+![image-20200419150523772](https://www.lei32323.com/image-20200419150523772.png)
 
 
 
@@ -369,11 +379,11 @@ http://192.168.0.205:40492/
 >
 > 如果你也和我一样的话，请使用命令` kubectl get svc -n ns-monitor ` 查看你的service名称 和内部端口号
 >
-> ![image-20200419150716736](/Users/wanglei/dev/blog_source/images/image-20200419150716736.png)
+> ![image-20200419150716736](https://www.lei32323.com/image-20200419150716736.png)
 
 最后点击``save&Test`  测试下连接是否正常
 
-![image-20200419150758526](/Users/wanglei/dev/blog_source/images/image-20200419150758526.png)
+![image-20200419150758526](https://www.lei32323.com/image-20200419150758526.png)
 
 说明正常。。
 
@@ -387,13 +397,13 @@ https://github.com/lei32323/kong-plugin-prometheus/blob/master/grafana/kong-offi
 
 找到grafana的Dashboard Manage
 
-![image-20200419151027838](/Users/wanglei/dev/blog_source/images/image-20200419151027838.png)
+![image-20200419151027838](https://www.lei32323.com/image-20200419151027838.png)
 
 选择Import 
 
 选择刚才从giithub中下载的json
 
-![image-20200419151102281](/Users/wanglei/dev/blog_source/images/image-20200419151102281.png)
+![image-20200419151102281](https://www.lei32323.com/image-20200419151102281.png)
 
 
 
@@ -401,13 +411,13 @@ https://github.com/lei32323/kong-plugin-prometheus/blob/master/grafana/kong-offi
 
 最后选择grafana的 Dashboard 就能查看 到导入的dashboard了
 
-![image-20200419151219176](/Users/wanglei/dev/blog_source/images/image-20200419151219176.png)
+![image-20200419151219176](https://www.lei32323.com/image-20200419151219176.png)
 
 
 
 最后的效果图就是这样了
 
-![image-20200419151301422](/Users/wanglei/dev/blog_source/images/image-20200419151301422.png)
+![image-20200419151301422](https://www.lei32323.com/image-20200419151301422.png)
 
 
 

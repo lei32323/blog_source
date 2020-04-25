@@ -111,7 +111,7 @@ IOC：控制反转  \ DI:依赖注入
     + `org.springframework.context.support.ClassPathXmlApplicationContext`（xml形式加载）
     + `org.springframework.context.support.FileSystemXmlApplicationContext`(文件形式加载)
 
-![1546846978566](https://wanglei.club/beanFactory类图.png)
+![1546846978566](https://www.lei32323.com/beanFactory类图.png)
 
 +  配置元数据
   +  基于注解配置：
@@ -560,7 +560,7 @@ public void shouMessage(String message){
 
 ​		2.2） 其他介绍
 
-![image-20190108114649146](https://wanglei.club/其他介绍.png)
+![image-20190108114649146](https://www.lei32323.com/其他介绍.png)
 
 ​	3） 顺序的监听器`@Order` 设置优先级
 
@@ -602,7 +602,7 @@ public void shouMessage(String message){
       Resource resource = applicationContext.getResource("http:application-context.xml");
       ~~~
 
-    ![1546938519972](https://wanglei.club/spring文件加载条件.png)
+    ![1546938519972](https://www.lei32323.com/spring文件加载条件.png)
 
     **代码使用ResourceLoaderAware**
 

@@ -26,13 +26,13 @@ tags: kafka,分布式
 
 日志收集：
 
-![1540176222750](https://wanglei.club/kafka_日志收集.png)
+![1540176222750](https://www.lei32323.com/kafka_日志收集.png)
 
 
 
 #### 架构图：
 
-![1540176323471](https://wanglei.club//kafa_架构图.png)
+![1540176323471](https://www.lei32323.com//kafa_架构图.png)
 
 ##### Topic ：类似于大表
 
@@ -394,7 +394,7 @@ consumer_offsets(topic)  默认有50个分区
 
 3.等于几就相当于消息存储在哪个consumer_offsets里面
 
-![1540370326620](https://wanglei.club/kafka_offset查看.png)
+![1540370326620](https://www.lei32323.com/kafka_offset查看.png)
 
 ~~~bash
 sh kafka-simple-consumer-shell.sh --topic __consumer_offsets --partition 所在的那个分区 --broker-list 192.168.83.129:9092,192.168.83.130:9092,192.168.83.131:9092 --formatter "kafka.coordinator.group.GroupMetadataManager\$OffsetsMessageFormatter"
@@ -502,11 +502,11 @@ isr(replica.lag.time.max.ms)  follwer副本同步leader副本的关键时间（1
 
 初始化 ，没有消息发送过来的时候。
 
-![1540804103612](https://wanglei.club/kafka_没有消息发送过来的时候.png)
+![1540804103612](https://www.lei32323.com/kafka_没有消息发送过来的时候.png)
 
 有消息进来的时候
 
-![1540803926214](https://wanglei.club/有消息进来的时候.png)
+![1540803926214](https://www.lei32323.com/有消息进来的时候.png)
 
 1：把消息写入到对应分区的Log文件中，同时更新Leader副本的LEO
 
@@ -516,7 +516,7 @@ isr(replica.lag.time.max.ms)  follwer副本同步leader副本的关键时间（1
 
 数据开始同步的时候
 
-![1540804233152](https://wanglei.club/kafka_数据开始同步的时候.png)
+![1540804233152](https://www.lei32323.com/kafka_数据开始同步的时候.png)
 
 1：Leader副本读取Log消息，并且去更新remote LEO (根据followe的fetch传递过来的offset)
 
@@ -528,7 +528,7 @@ isr(replica.lag.time.max.ms)  follwer副本同步leader副本的关键时间（1
 
 第一次交互之后 （推送消息）
 
-![1540804594570](https://wanglei.club/kafka_推送消息.png)
+![1540804594570](https://www.lei32323.com/kafka_推送消息.png)
 
 HW的取值：拿着HW和LEO进行比较，取最小值所以为0
 
@@ -538,7 +538,7 @@ HW的取值：拿着HW和LEO进行比较，取最小值所以为0
 
 第二次交互 （确认消息）
 
-![1540804801092](https://wanglei.club/kafka_确认消息.png)
+![1540804801092](https://www.lei32323.com/kafka_确认消息.png)
 
 这个时候HW为1的时候 那么就可以消费第一条消息了
 

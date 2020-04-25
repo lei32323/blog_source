@@ -168,7 +168,7 @@ firewall-cmd --reload  ##重启
 
 下载界面
 
-![image-20200406155139488](https://wanglei.club/image-20200406155139488.png)
+![image-20200406155139488](https://www.lei32323.com/image-20200406155139488.png)
 
 
 
@@ -176,63 +176,63 @@ firewall-cmd --reload  ##重启
 
 
 
-![img](https://wanglei.club/20180520135425.png)
+![img](https://www.lei32323.com/20180520135425.png)
 
 下一步：
 
-![img](https://wanglei.club/20180520135442.png)
+![img](https://www.lei32323.com/20180520135442.png)
 
 这里选择第三个（管理工具），下一步安装结束，打开软件：
 
-![img](https://wanglei.club/20180520141603.png)
+![img](https://www.lei32323.com/20180520141603.png)
 
 点击新设置
 
 主机名填服务器的地址或域名，端口选择之前设置的5555，密码设置之前设置的管理密码：
 
-![img](https://wanglei.club/20180520141845.png)
+![img](https://www.lei32323.com/20180520141845.png)
 
-![img](https://wanglei.club/20180520142012.png)
+![img](https://www.lei32323.com/20180520142012.png)
 
 选择远程访问VPN Server
 
-![img](https://wanglei.club/20180520142040.png)
+![img](https://www.lei32323.com/20180520142040.png)
 
 
 
 启动L2TP，设置IPsec 预共享密钥
 
-![img](https://wanglei.club/20180520142302.png)
+![img](https://www.lei32323.com/20180520142302.png)
 
 
 
 这个没什么用，禁用确当即可。
 
-![img](https://wanglei.club/20180520142443.png)
+![img](https://www.lei32323.com/20180520142443.png)
 
 
 
-![img](https://wanglei.club/20180520142804.png)
+![img](https://www.lei32323.com/20180520142804.png)
 
 
 
 这里新建用户，用于连接VPN服务器。如图配置好，点确定。
 
-![img](https://wanglei.club/20180520143006.png)
+![img](https://www.lei32323.com/20180520143006.png)
 
 
 
 这里点击管理虚拟HUB。
 
-![img](https://wanglei.club/20180520143050.png)
+![img](https://www.lei32323.com/20180520143050.png)
 
 
 
-![img](https://wanglei.club/20180520143119.png)
+![img](https://www.lei32323.com/20180520143119.png)
 
 
 
-![img](https://wanglei.club/20180520143207.png)
+![img](https://www.lei32323.com/20180520143207.png)
 
 
 
@@ -242,25 +242,25 @@ firewall-cmd --reload  ##重启
 
 下载client  地址:https://www.softether-download.com/cn.aspx?product=softether
 
-![image-20200406153244932](https://wanglei.club/image-20200406153244932.png)
+![image-20200406153244932](https://www.lei32323.com/image-20200406153244932.png)
 
 
 
 下载完成后打开
 
-![技术分享图片](https://wanglei.club/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_100,g_se,x_10,y_10,shadow_90,type_ZmFuZ3poZW5naGVpdGk=.png)
+![技术分享图片](https://www.lei32323.com/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_100,g_se,x_10,y_10,shadow_90,type_ZmFuZ3poZW5naGVpdGk=.png)
 
 
 
 填入服务端 的配置
 
-![技术分享图片](https://wanglei.club/1231234.png)
+![技术分享图片](https://www.lei32323.com/1231234.png)
 
 
 
 双击 连接
 
-![技术分享图片](https://wanglei.club/313114.png)
+![技术分享图片](https://www.lei32323.com/313114.png)
 
 
 
@@ -278,7 +278,7 @@ MACOS 下载使用【SoftEtherGUI】   版本已经不更新了
 
 配置服务端连接
 
-![image-20200406153748771](https://wanglei.club/image-20200406153748771.png)
+![image-20200406153748771](https://www.lei32323.com/image-20200406153748771.png)
 
 
 
@@ -290,4 +290,4 @@ MACOS 下载使用【SoftEtherGUI】   版本已经不更新了
 
 
 
-![image-20200406153911910](https://wanglei.club/image-20200406153911910.png)
+![image-20200406153911910](https://www.lei32323.com/image-20200406153911910.png)

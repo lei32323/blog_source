@@ -185,25 +185,25 @@ konga                     NodePort    10.99.31.6      <none>        80:8080/TCP 
 
 选择左侧菜单中的Connections 选择需要管理的kong 
 
-![image-20200419151642369](/Users/wanglei/dev/blog_source/images/image-20200419151642369.png)
+![image-20200419151642369](https://www.lei32323.com/image-20200419151642369.png)
 
 
 
 选择激活后，左边就会出现api gateway的菜单
 
-![image-20200419151747331](/Users/wanglei/dev/blog_source/images/image-20200419151747331.png)
+![image-20200419151747331](https://www.lei32323.com/image-20200419151747331.png)
 
 
 
 点击dashboard 
 
-![image-20200418211245746](https://wanglei.club/image-20200418211245746.png)
+![image-20200418211245746](https://www.lei32323.com/image-20200418211245746.png)
 
 
 
 这里我们配置了数据库，所以可以看到 数据库的连接信息
 
-![image-20200419151510205](/Users/wanglei/dev/blog_source/images/image-20200419151510205.png)
+![image-20200419151510205](https://www.lei32323.com/image-20200419151510205.png)
 
 
 

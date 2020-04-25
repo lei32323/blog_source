@@ -18,7 +18,7 @@ Kong和社区提供了[各种](https://docs.konghq.com/hub/)插件，[您可以]
 
 基本上，Kong设置是，如果您使用Admin API处理它，它将被保存在PostgreSQL等数据库中。Admin API是一种典型的REST API，并且由于它是一个说明性和顺序性的设置过程，因此如今在吹捧声明式操作时，似乎有些过时了。当我将Kong视为微服务之一时，似乎有状态的PostgreSQL坚持使用了它，这使其操作起来更加费力并且令人不快。
 
-![imparative](https://wanglei.club/imparative.png)
+![imparative](https://www.lei32323.com/imparative.png)
 
 如果在无DB模式下运行Kong，则不需要DBMS，但是过程是在启动时从设置文件中读取初始设置，并在更改设置时重写并重新加载设置文件，因此很难使用。
 
@@ -40,7 +40,7 @@ Ingress Controller是监视Ingress资源创建和修改的控制器服务与根�
 
 
 
-![declarative](https://wanglei.club/declarative.png) 
+![declarative](https://www.lei32323.com/declarative.png) 
 
 如果使用Kong Ingress Controller，则可以使用Kubernetes API声明性地设置Kong，这样就可以解决上述问题。
 

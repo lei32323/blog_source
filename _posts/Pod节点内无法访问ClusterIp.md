@@ -32,7 +32,7 @@ chmod 755 /etc/sysconfig/modules/ipvs.modules && bash /etc/sysconfig/modules/ipv
 kubectl edit cm kube-proxy -n kube-system
 ~~~
 
-![img](https://wanglei.club/1337432-20200120154729046-415080258.png)
+![img](https://www.lei32323.com/1337432-20200120154729046-415080258.png)
 
 4. 重启kupe-proxy：
 
@@ -46,5 +46,5 @@ kubectl edit cm kube-proxy -n kube-system
 kubectl logs -n kube-system kube-proxy-74vpx
 ~~~
 
-![image-20200411204315655](https://wanglei.club/image-20200411204315655.png)
+![image-20200411204315655](https://www.lei32323.com/image-20200411204315655.png)
 
