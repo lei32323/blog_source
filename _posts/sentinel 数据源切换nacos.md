@@ -5,9 +5,11 @@ tags: alibaba,sentinel
 
 ---
 
+
+
 1. 后端修改
 
-    新增nacos的Provider 和 Publisher 
+   新增nacos的Provider 和 Publisher 
 
    ~~~java
    /**
@@ -155,3 +157,6 @@ tags: alibaba,sentinel
 
    `mvn install `
 
+
+
+> 把连接Nacos的参数可设置成通过命令行传入，不需要每次都要改源码
